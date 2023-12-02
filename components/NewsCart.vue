@@ -1,18 +1,20 @@
 <template>
-  <div class="card mb-3">
-    <div class="card-header">
-      發佈時間：
-      <time :datetime="newsContent.posted">
-        {{ formatDate(newsContent.posted) }}
-      </time>
+  <ClientOnly>
+    <div class="card mb-3">
+      <div class="card-header">
+        發佈時間：
+        <time :datetime="newsContent.posted">
+          {{ formatDate(newsContent.posted) }}
+        </time>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">
+          <NuxtLink :to="linkTO">{{ newsContent.title }}</NuxtLink>
+        </h5>
+        <NuxtLink :to="linkTO">see more</NuxtLink>
+      </div>
     </div>
-    <div class="card-body">
-      <h5 class="card-title">
-        <NuxtLink :to="linkTO">{{ newsContent.title }}</NuxtLink>
-      </h5>
-      <NuxtLink :to="linkTO">see more</NuxtLink>
-    </div>
-  </div>
+  </ClientOnly>
 </template>
 
 <script setup>
