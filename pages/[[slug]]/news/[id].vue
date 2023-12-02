@@ -7,7 +7,7 @@
     />
     <h2 class="news-info-title my-3">{{ newsInfo.title }}</h2>
     <ClientOnly>
-      <div class="news-info-content">{{ newsInfo.description }}</div>
+      <div class="news-info-description">{{ newsInfo.description }}</div>
     </ClientOnly>
     <div class="py-3">
       <time :datetime="newsInfo.posted">
@@ -62,6 +62,7 @@ definePageMeta({
   .news-info-description {
     letter-spacing: 1px;
     line-height: 1.75;
+    text-align: justify;
   }
 }
 </style>

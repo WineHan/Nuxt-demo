@@ -5,9 +5,10 @@
         <NuxtLink :to="goBackHome">台北旅遊</NuxtLink>
       </h1>
       <img class="logo-image" src="https://placehold.co/60x60" alt="logo" />
-      <div class="navbar-local-block">
+      <div :class="{ 'list-active': showList }" class="navbar-local-block">
         <svg
           v-show="isShowChangeLocaleIcon"
+          @click="toggleShowList"
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"
@@ -45,6 +46,15 @@
 <script setup>
 const store = useNewsStore();
 const route = useRoute();
+const showList = ref(false);
+
+watch(
+  () => route.path,
+  () => {
+    showList.value = false;
+  },
+  { immediate: true }
+);
 
 const isActive = computed(() => {
   return store.nowLocale === localeEnum.en;
@@ -82,6 +92,10 @@ const switchLocale = async function (changeLocale) {
     if (fullPath === "/") await navigateTo("/tw");
     await navigateTo(`/tw${fullPath}`);
   }
+};
+
+const toggleShowList = function () {
+  showList.value = !showList.value;
 };
 </script>
 

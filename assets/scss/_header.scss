@@ -25,12 +25,16 @@
             width: 150px;
             text-align: right;
 
-            &:hover,
-            &:active {
+           
+            &.list-active {
                 .local-list {
                     opacity: 1;
                     visibility: visible;
                 }
+            }
+
+            .bi-globe {
+                cursor: pointer;
             }
 
             .local-list {
@@ -43,7 +47,6 @@
                 margin-bottom: 0px;
                 opacity: 0;
                 visibility: hidden;
-                transition: all 0.3s ease-in-out;
                 z-index: 2;
                 background-color: #fff;
 

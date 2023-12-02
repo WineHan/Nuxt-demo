@@ -1,5 +1,4 @@
 <template>
-  <ClientOnly>
     <div class="card mb-3">
       <div class="card-header">
         發佈時間：
@@ -14,7 +13,6 @@
         <NuxtLink :to="linkTO">see more</NuxtLink>
       </div>
     </div>
-  </ClientOnly>
 </template>
 
 <script setup>
