@@ -1,5 +1,5 @@
 <template>
-  <div class="news-info-block">
+  <div v-if="newsInfo" class="news-info-block">
     <img
       src="https://placehold.co/1920x720"
       class="d-block w-100"
@@ -10,37 +10,40 @@
       <div class="news-info-description">{{ newsInfo.description }}</div>
     </ClientOnly>
     <div class="py-3">
-      <time :datetime="newsInfo.posted">
-        發佈時間：{{ formatDate(newsInfo.posted) }}
-      </time>
+      <span>發佈時間</span>
+      <time v-timeformat="newsInfo.posted" :datetime="newsInfo.posted"> </time>
     </div>
     <button @click="$router.back()" class="btn btn-dark">回上一頁</button>
   </div>
+  <div v-else>404 page not fund</div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const route = useRoute();
 const store = useNewsStore();
-const newsID = ref(Number(route.params.id));
-
+const newsID = ref<number>(Number(route.params.id));
 const newsInfo = computed(() => {
-  return store.newsData.data.find((news) => news.id === newsID.value);
+  return store.newsData.find((news) => news.id === newsID.value);
 });
 
 const headDescription = computed(() => {
-  return newsInfo.value.description.slice(0, 50);
+  return newsInfo.value ? newsInfo.value.description.slice(0, 50) : "";
+});
+
+onBeforeMount(async () => {
+  if (!newsInfo.value) {
+    throw createError({
+      statusCode: 404,
+      statusMessage: "News Not Found",
+    });
+  }
 });
 
 useSeoMeta({
-  title: newsInfo.value.title,
-  ogTitle: newsInfo.value.title,
+  title: newsInfo.value ? newsInfo.value.title : "",
+  ogTitle: newsInfo.value ? newsInfo.value.title : "",
   description: headDescription,
   ogDescription: headDescription,
-});
-
-useHead({
-  title: newsInfo.value.title,
-  meta: [{ name: "ogDescription", content: "News Description." }],
 });
 
 definePageMeta({

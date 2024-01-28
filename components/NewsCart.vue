@@ -1,28 +1,27 @@
 <template>
-    <div class="card mb-3">
-      <div class="card-header">
-        發佈時間：
-        <time :datetime="newsContent.posted">
-          {{ formatDate(newsContent.posted) }}
-        </time>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">
-          <NuxtLink :to="linkTO">{{ newsContent.title }}</NuxtLink>
-        </h5>
-        <NuxtLink :to="linkTO">see more</NuxtLink>
-      </div>
+  <div class="card mb-3">
+    <div class="card-header">
+      發佈時間：
+      <time v-timeformat="newsContent.posted" :datetime="newsContent.posted">
+      </time>
     </div>
+    <div class="card-body">
+      <h5 class="card-title">
+        <NuxtLink :to="linkTO">{{ newsContent.title }}</NuxtLink>
+      </h5>
+      <NuxtLink :to="linkTO">see more</NuxtLink>
+    </div>
+  </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const route = useRoute();
 
-const props = defineProps({
-  newsContent: Object,
-});
+const props = defineProps<{
+  newsContent: Article;
+}>();
 
-const linkTO = `${route.fullPath}/${props.newsContent.id}`;
+const linkTO: string = `${route.fullPath}/${props.newsContent.id}`;
 </script>
 
 <style lang="scss">

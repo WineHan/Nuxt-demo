@@ -4,7 +4,7 @@
 export default defineNuxtRouteMiddleware(async (to, from) => {
   const store = useNewsStore();
 
-  if (store.newsData === null) {
+  if (store.newsData.length === 0) {
     store.getLocale(from.fullPath);
 
     await store.getNews({

@@ -43,7 +43,7 @@
   </header>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const store = useNewsStore();
 const route = useRoute();
 const showList = ref(false);
@@ -69,7 +69,9 @@ const goBackHome = computed(() => {
   return "/tw";
 });
 
-const switchLocale = async function (changeLocale) {
+const switchLocale = async function (
+  changeLocale: (typeof localeEnum)[keyof typeof localeEnum]
+): Promise<void> {
   if (changeLocale === store.nowLocale) return;
 
   const { fullPath } = route;
@@ -81,17 +83,27 @@ const switchLocale = async function (changeLocale) {
 
   store.setLocale(changeLocale);
 
-  if (changeLocale === localeEnum.en) {
-    // 根目錄
-    if (fullPath === "/tw") await navigateTo("/");
-    await navigateTo(fullPath.replace("/tw", ""));
+  const localeRoutes = {
+    [localeEnum.en]: {
+      checkPath: "/tw",
+      navigatePath: "/",
+      replacePath: fullPath.replace("/tw", ""),
+    },
+    [localeEnum.tw]: {
+      checkPath: "/",
+      navigatePath: "/tw",
+      replacePath: `/tw${fullPath}`,
+    },
+  };
+
+  const localeRoute = localeRoutes[changeLocale];
+
+  // 根目錄
+  if (fullPath === localeRoute.checkPath) {
+    await navigateTo(localeRoute.navigatePath);
   }
 
-  if (changeLocale === localeEnum.tw) {
-    // 根目錄
-    if (fullPath === "/") await navigateTo("/tw");
-    await navigateTo(`/tw${fullPath}`);
-  }
+  await navigateTo(localeRoute.replacePath);
 };
 
 const toggleShowList = function () {

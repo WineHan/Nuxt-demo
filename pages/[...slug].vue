@@ -70,10 +70,7 @@
   </div>
 </template>
 
-<script setup>
-const store = useNewsStore();
-const route = useRoute();
-
+<script setup lang="ts">
 useHead({
   meta: [{ name: "description", content: "台北旅遊資訊" }],
   title: "台北旅遊資訊",
@@ -83,11 +80,16 @@ definePageMeta({
   middleware: "news",
 });
 
+const store = useNewsStore();
+const route = useRoute();
+
 const topNews = computed(() => {
-  return store.newsData.data.slice(0, 3);
+  return store.newsData.length >= 3
+    ? store.newsData.slice(0, 3)
+    : store.newsData;
 });
 
-const generateSingleNewsUrl = (routePath, postID) => {
+const generateSingleNewsUrl = (routePath: string, postID: number): string => {
   if (routePath === "/") {
     routePath = "";
   }
@@ -99,7 +101,7 @@ const generateSingleNewsUrl = (routePath, postID) => {
   return `${routePath}/news/${postID}`;
 };
 
-const generateAllNewsUrl = (routePath) => {
+const generateAllNewsUrl = (routePath: string): string => {
   if (routePath === "/") {
     routePath = "";
   }

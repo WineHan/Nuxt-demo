@@ -12,13 +12,13 @@
   </div>
 </template>
 
-<script setup>
-const store = useNewsStore();
-const allNewsData = store.newsData ? store.newsData.data : [];
-
+<script setup lang="ts">
 definePageMeta({
   middleware: "news",
 });
+
+const store = useNewsStore();
+const allNewsData: Article[] = store.newsData;
 </script>
 
 <style lang="scss">
