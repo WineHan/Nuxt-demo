@@ -20,5 +20,11 @@ export default defineNuxtConfig({
         autoImports: ["defineStore", "acceptHMRUpdate"],
       },
     ],
+    [
+      "@nuxtjs/i18n",
+      {
+        vueI18n: "./i18n.config.ts",
+      },
+    ],
   ],
 });

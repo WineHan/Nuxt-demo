@@ -1,7 +1,10 @@
+import { localeEnum, localeEnumMappingNewsLang } from "../../utils/enum";
 export default defineEventHandler(async (event) => {
   try {
     const query: Query = getQuery(event);
-    const apiEndpoint: string = `https://www.travel.taipei/open-api/${query.locale}/Events/News?page=${query.page}`;
+    const lang: string = localeEnumMappingNewsLang[query.locale];
+
+    const apiEndpoint: string = `https://www.travel.taipei/open-api/${lang}/Events/News?page=${query.page}`;
 
     const requestOptions = {
       headers: {
@@ -9,7 +12,7 @@ export default defineEventHandler(async (event) => {
       },
     };
 
-    const response: ApiResponse = await $fetch(apiEndpoint, requestOptions);
+    const response: NewsApiResponse = await $fetch(apiEndpoint, requestOptions);
 
     return response;
   } catch (error) {

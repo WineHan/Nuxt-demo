@@ -2,7 +2,7 @@
   <Header />
   <div class="container content">
     <NuxtLoadingIndicator />
-    <NuxtPage />
+    <slot />
   </div>
   <Footer />
 </template>

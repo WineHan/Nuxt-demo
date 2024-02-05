@@ -23,10 +23,10 @@
         <ul class="local-list">
           <li :class="{ active: isActive }" class="local-list-item">
             <button
-              @click="switchLocale(localeEnum.en)"
+              @click="switchLocale(localeEnum.us)"
               class="btn change-locale-btn"
             >
-              {{ localeEnum.en }}
+              {{ localeEnum.us }}
             </button>
           </li>
           <li :class="{ active: !isActive }" class="local-list-item">
@@ -34,7 +34,7 @@
               @click="switchLocale(localeEnum.tw)"
               class="btn change-locale-btn"
             >
-              {{ localeEnum.tw }}
+              zh-TW
             </button>
           </li>
         </ul>
@@ -57,7 +57,7 @@ watch(
 );
 
 const isActive = computed(() => {
-  return store.nowLocale === localeEnum.en;
+  return store.nowLocale === localeEnum.us;
 });
 
 const isShowChangeLocaleIcon = computed(() => {
@@ -65,7 +65,7 @@ const isShowChangeLocaleIcon = computed(() => {
 });
 
 const goBackHome = computed(() => {
-  if (store.nowLocale === localeEnum.en) return "/";
+  if (store.nowLocale === localeEnum.us) return "/";
   return "/tw";
 });
 
@@ -84,7 +84,7 @@ const switchLocale = async function (
   store.setLocale(changeLocale);
 
   const localeRoutes = {
-    [localeEnum.en]: {
+    [localeEnum.us]: {
       checkPath: "/tw",
       navigatePath: "/",
       replacePath: fullPath.replace("/tw", ""),

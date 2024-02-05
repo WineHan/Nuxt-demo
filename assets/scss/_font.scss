@@ -1,6 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
 
 html,
 body {
-    font-family: "Noto Sans TC", sans-serif;
+    font-family:
+        Segoe UI,
+        "Noto Sans",
+        "Noto Sans TC",
+        "Noto Sans SC",
+        "微軟正黑體",
+        Microsoft JhengHei,
+        "微軟雅黑體",
+        Microsoft YaHei,
+        SimHei,
+        "メイリオ",
+        Meiryo,
+        "ヒラギノ角ゴ Pro W3",
+        "Hiragino Kaku Gothic Pro",
+        "新細明體",
+        Arial,
+        Verdana,
+        Helvetica,
+        sans-serif;
 }

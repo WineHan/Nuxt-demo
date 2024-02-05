@@ -1,4 +1,9 @@
 interface locale {
-  en: string;
+  us: string;
   tw: string;
+}
+
+interface routeToCountryID {
+  us: number;
+  tw: number;
 }

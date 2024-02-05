@@ -2,9 +2,7 @@ import { defineStore } from "pinia";
 
 export const useNewsStore = defineStore("news", () => {
   const newsData = ref<Article[]>([]);
-  let nowLocale = ref<(typeof localeEnum)[keyof typeof localeEnum]>(
-    localeEnum.en
-  );
+  const nowLocale = ref<string>(localeEnum.us);
 
   const getNews = async ({
     page,
@@ -34,7 +32,7 @@ export const useNewsStore = defineStore("news", () => {
   const getLocale = (routePath: string) => {
     const regExp = /tw/;
 
-    nowLocale.value = regExp.test(routePath) ? localeEnum.tw : localeEnum.en;
+    nowLocale.value = regExp.test(routePath) ? localeEnum.tw : localeEnum.us;
   };
 
   /**

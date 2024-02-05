@@ -11,7 +11,7 @@ interface Article {
   links: any[];
 }
 
-interface ApiResponse {
+interface NewsApiResponse {
   total?: number;
   data?: Article[];
   error?: string;
@@ -20,4 +20,10 @@ interface ApiResponse {
 interface Query {
   locale: string;
   page: number;
+}
+
+interface localeMappingNewsLang {
+  [key: string]: string;
+  us: string;
+  tw: string;
 }
