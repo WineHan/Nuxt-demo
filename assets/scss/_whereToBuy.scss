@@ -463,6 +463,7 @@
                 background-color: transparent;
                 border: none;
                 white-space: nowrap;
+                color: #423f3f;
 
                 &.active {
                     color: #008cd6;
@@ -659,12 +660,14 @@
 
     @media (max-width: 732px) {
         .result-block {
-            .arrow-left {
-                display: block;
-            }
+            .nav-button-group.show-arrow {
+                .arrow-left {
+                    display: block;
+                }
 
-            .arrow-right {
-                display: block;
+                .arrow-right {
+                    display: block;
+                }
             }
         }
     }
@@ -742,7 +745,9 @@
             }
 
             .nav-button-group {
-                justify-content: flex-start;
+                &.show-arrow {
+                    justify-content: flex-start;
+                }
 
                 .btn-tab {
                     font-size: 15px;

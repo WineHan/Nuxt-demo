@@ -62,27 +62,20 @@
     </section>
     <section class="result-block">
       <div class="result-container">
-        <svg
-          class="arrow-left"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 19 30"
+        <nav
+          class="nav-button-group"
+          :class="{ 'show-arrow': whereByStore.tabData.length > 3 }"
         >
-          <path
-            d="M20-30,5-15,20,0l4-4L13-15,24-26Z"
-            transform="translate(-5 30)"
-          ></path>
-        </svg>
-        <svg
-          class="arrow-right"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 19 30"
-        >
-          <path
-            d="M20-30,5-15,20,0l4-4L13-15,24-26Z"
-            transform="translate(-5 30)"
-          ></path>
-        </svg>
-        <nav class="nav-button-group">
+          <svg
+            class="arrow-left"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 19 30"
+          >
+            <path
+              d="M20-30,5-15,20,0l4-4L13-15,24-26Z"
+              transform="translate(-5 30)"
+            ></path>
+          </svg>
           <template v-for="tab in whereByStore.tabData" :key="tab.Id">
             <button
               @click="changeTab(tab.Id)"
@@ -92,6 +85,16 @@
               {{ tab.Name }}
             </button>
           </template>
+          <svg
+            class="arrow-right"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 19 30"
+          >
+            <path
+              d="M20-30,5-15,20,0l4-4L13-15,24-26Z"
+              transform="translate(-5 30)"
+            ></path>
+          </svg>
         </nav>
         <ul class="result-list">
           <li

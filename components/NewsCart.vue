@@ -24,7 +24,7 @@ const props = defineProps<{
 const linkTO: string = `${route.fullPath}/${props.newsContent.id}`;
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .card-body {
   display: flex;
   flex-direction: column;

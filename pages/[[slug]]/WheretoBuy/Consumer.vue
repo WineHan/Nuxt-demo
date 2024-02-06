@@ -67,7 +67,10 @@
     </section>
     <section class="result-block">
       <div class="result-container">
-        <nav class="nav-button-group">
+        <nav
+          class="nav-button-group"
+          :class="{ 'show-arrow': whereByStore.tabData.length > 3 }"
+        >
           <svg
             class="arrow-left"
             xmlns="http://www.w3.org/2000/svg"
