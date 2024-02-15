@@ -1,4 +1,11 @@
 export default defineNuxtRouteMiddleware((to, from) => {
+  if (
+    !Object.values(localeEnum).includes(to.params.locale) &&
+    to.params.locale !== ""
+  ) {
+    return abortNavigation();
+  }
+
   if (to.path !== "/" && to.path.endsWith("/")) {
     const { path, query, hash } = to;
 

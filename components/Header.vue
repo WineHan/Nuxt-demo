@@ -61,7 +61,7 @@ const isActive = computed(() => {
 });
 
 const isShowChangeLocaleIcon = computed(() => {
-  return route.name !== "slug-news-id" && route.name !== "slug-news-custom";
+  return route.name !== "locale-news-id" && route.name !== "locale-news-custom";
 });
 
 const goBackHome = computed(() => {
@@ -91,6 +91,7 @@ const switchLocale = async function (
     },
     [localeEnum.tw]: {
       checkPath: "/",
+      checkUSPath: "/us",
       navigatePath: "/tw",
       replacePath: `/tw${fullPath}`,
     },
@@ -99,7 +100,10 @@ const switchLocale = async function (
   const localeRoute = localeRoutes[changeLocale];
 
   // 根目錄
-  if (fullPath === localeRoute.checkPath) {
+  if (
+    fullPath === localeRoute.checkPath ||
+    fullPath === localeRoute.checkUSPath
+  ) {
     await navigateTo(localeRoute.navigatePath);
   }
 

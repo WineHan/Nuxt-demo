@@ -125,7 +125,7 @@ async function setLocation(local: CountryApiResponse) {
 
   router.push({
     params: {
-      slug: whereByStore.nowLocale,
+      locale: whereByStore.nowLocale,
     },
   });
 }

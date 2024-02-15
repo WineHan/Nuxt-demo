@@ -2,10 +2,10 @@
   <footer class="footer">
     <ul class="footer-list">
       <li class="footer-list-item">
-        <NuxtLink to="/qa">常見問題</NuxtLink>
+        <NuxtLink to="/">常見問題</NuxtLink>
       </li>
       <li class="footer-list-item">
-        <NuxtLink to="/about">關於我們</NuxtLink>
+        <NuxtLink to="/">關於我們</NuxtLink>
       </li>
       <li class="footer-list-item">
         <NuxtLink :to="generateAllNewsUrl()">購買</NuxtLink>
@@ -16,11 +16,14 @@
 </template>
 
 <script setup lang="ts">
-const route = useRoute();
+const store = useNewsStore();
 
 const generateAllNewsUrl = (): string => {
-  if (route.params.slug === "") return "/us/WheretoBuy/Consumer";
-  return `/${route.params.slug}/WheretoBuy/Consumer`;
+  if (store.nowLocale === localeEnum.us) {
+    return `/${localeEnum.us}/WheretoBuy/Consumer`;
+  }
+
+  return `/${localeEnum.tw}/WheretoBuy/Consumer`;
 };
 </script>
 

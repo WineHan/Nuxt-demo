@@ -3,7 +3,7 @@
  */
 export default defineNuxtRouteMiddleware(async (to) => {
   const store = useWhereByStore();
-  const nowLocale = localeEnum[to.params.slug as keyof locale];
+  const nowLocale = localeEnum[to.params.locale as keyof locale];
 
   store.setNowLocale(nowLocale);
   store.setProductType(to.fullPath);

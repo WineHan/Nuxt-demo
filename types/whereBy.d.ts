@@ -80,3 +80,16 @@ interface ProductType {
   consumer: string;
   enterprise: string;
 }
+
+interface SearchResponse {
+  SearchDatas: SearchData[];
+  SubModelIds: number[];
+}
+
+interface SearchData {
+  value: string;
+  ck: string;
+  url: string;
+  pid: number;
+  category: string;
+}

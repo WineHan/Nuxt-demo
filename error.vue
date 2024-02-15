@@ -6,8 +6,7 @@
       alt="error image"
     />
     <p class="error-text">
-      Sorry! The page you are looking for is no longer available or has been
-      removed.
+      The page you are looking for is no longer available or has been removed.
     </p>
     <div class="search-product">
       <input
