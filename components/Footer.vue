@@ -20,10 +20,10 @@ const store = useNewsStore();
 
 const generateAllNewsUrl = (): string => {
   if (store.nowLocale === localeEnum.us) {
-    return `/${localeEnum.us}/WheretoBuy/Consumer`;
+    return `/${localeEnum.us}/wheretobuy/consumer`;
   }
 
-  return `/${localeEnum.tw}/WheretoBuy/Consumer`;
+  return `/${localeEnum.tw}/wheretobuy/consumer`;
 };
 </script>
 
