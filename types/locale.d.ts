@@ -3,7 +3,6 @@ interface locale {
   us: string;
   tw: string;
   error: string;
-  qa: string;
 }
 
 interface routeToCountryID {

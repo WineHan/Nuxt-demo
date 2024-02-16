@@ -4,7 +4,6 @@ export const localeEnum: locale = {
   us: "us",
   tw: "tw",
   error: '404',
-  qa: 'qa'
 };
 
 export const routeToCountryIDEnum: routeToCountryID = {
