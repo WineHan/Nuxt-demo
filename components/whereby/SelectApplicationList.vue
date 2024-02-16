@@ -37,7 +37,7 @@ const router = useRouter();
 const whereByStore = useWhereByStore();
 const openSelectMenu = ref(false);
 const selectedHead = ref<HTMLDivElement | null>(null);
-const productTypeOption = ref<string[]>(["Consumer", "Enterprise"]);
+const productTypeOption = ref<string[]>(["consumer", "enterprise"]);
 
 function toggleSelectMenu() {
   if (openSelectMenu.value) {
