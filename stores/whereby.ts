@@ -56,7 +56,7 @@ export const useWhereByStore = defineStore("whereByStore", () => {
    * @description 取得產品類型(個人/企業)
    */
   function setProductType(type: string) {
-    const whereByRouteRegExp = /Consumer/;
+    const whereByRouteRegExp = /consumer/;
 
     productType.value = whereByRouteRegExp.test(type)
       ? ProductTypeEnum.consumer
