@@ -1,4 +1,5 @@
 export default defineI18nConfig(() => ({
+  strategy: "no_prefix",
   legacy: false,
   locale: "tw",
   messages: {

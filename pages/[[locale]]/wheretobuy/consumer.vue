@@ -158,16 +158,20 @@ definePageMeta({
 });
 
 const whereByStore = useWhereByStore();
-const { setLocale } = useI18n();
 
-setLocale(whereByStore.nowLocale);
+if (process.client) {
+  const { setLocale } = useI18n();
+  setLocale(whereByStore.nowLocale);
+}
 
-await whereByStore.getProductLinePost();
-await whereByStore.getWhereByTab();
-await whereByStore.getWhereByContent();
+await Promise.all([
+  whereByStore.getProductLinePost(),
+  whereByStore.getWhereByTab(),
+  whereByStore.getWhereByContent(),
+]);
 
 if (whereByStore.showCityFilter) {
-  whereByStore.getCityData();
+  await whereByStore.getCityData();
 }
 
 async function resetAllFilter() {
