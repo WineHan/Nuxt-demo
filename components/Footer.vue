@@ -10,12 +10,12 @@
       <li class="footer-list-item">
         <NuxtLink :to="generateEnterpriseApplicationURL()">企業購買</NuxtLink>
       </li>
-      <li v-show="false" class="footer-list-item">
+      <!-- <li v-show="false" class="footer-list-item">
         <NuxtLink to="/tw/wheretobuy/consumer"></NuxtLink>
       </li>
       <li v-show="false" class="footer-list-item">
         <NuxtLink to="/tw/wheretobuy/enterprise"></NuxtLink>
-      </li>
+      </li> -->
       <li class="footer-list-item">copy right@2023</li>
     </ul>
   </footer>
