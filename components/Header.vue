@@ -105,9 +105,9 @@ const switchLocale = async function (
     fullPath === localeRoute.checkUSPath
   ) {
     await navigateTo(localeRoute.navigatePath);
+  } else {
+    await navigateTo(localeRoute.replacePath);
   }
-
-  await navigateTo(localeRoute.replacePath);
 };
 
 const toggleShowList = function () {

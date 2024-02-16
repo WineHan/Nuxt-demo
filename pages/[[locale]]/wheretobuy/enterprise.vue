@@ -99,6 +99,7 @@
         <ul class="result-list">
           <li
             v-for="item in whereByStore.whereByContent?.ListItems"
+            :key="item.Id"
             class="result-list-item-card"
             :class="
               whereByStore.whereByContent.ListItems.length > 4

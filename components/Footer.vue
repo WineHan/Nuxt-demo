@@ -2,10 +2,10 @@
   <footer class="footer">
     <ul class="footer-list">
       <li class="footer-list-item">
-        <NuxtLink to="/">常見問題</NuxtLink>
+        <NuxtLink to="/qa">常見問題</NuxtLink>
       </li>
       <li class="footer-list-item">
-        <NuxtLink to="/">關於我們</NuxtLink>
+        <NuxtLink to="/about">關於我們</NuxtLink>
       </li>
       <li class="footer-list-item">
         <NuxtLink :to="generateAllNewsUrl()">購買</NuxtLink>

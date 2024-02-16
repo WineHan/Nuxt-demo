@@ -1,7 +1,10 @@
 export const localeEnum: locale = {
   // 路由語系對應
+  home: "",
   us: "us",
   tw: "tw",
+  error: '404',
+  qa: 'qa'
 };
 
 export const routeToCountryIDEnum: routeToCountryID = {
@@ -13,12 +16,6 @@ export const routeToCountryIDEnum: routeToCountryID = {
 export const AreaEnum: UserArea = {
   us: "U.S.A",
   tw: "Taiwan",
-};
-
-export const abortRouteEnum: abortRoute = {
-  qa: "/qa",
-  about: "/about",
-  policy: "/policy",
 };
 
 export const ByApplicationMappingEnum: BuyApplicationMapping = {
